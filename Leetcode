@@ -1,0 +1,26 @@
+
+// C++ Solution 
+class Solution {
+public:
+//     int findKthLargest(vector<int>& nums, int k) {
+//         int temp=0;
+//         for(int i=0;i<nums.size();i++){
+//             for(int j=i+1;j<nums.size();j++){
+//                 if(nums[i]<nums[j]){
+// temp=nums[i];
+// nums[i]=nums[j];
+// nums[j]=temp;
+//                 }
+//             }
+//         }
+//         int ans= nums[k-1];
+//         return ans;
+//     }
+
+int findKthLargest(vector<int>& nums,int k){
+    
+sort(nums.begin(),nums.end());
+int ans=nums[nums.size()-k];
+return ans;
+}
+};
