@@ -1,0 +1,50 @@
+Question Link -> https://leetcode.com/problems/rotate-array/description/
+
+
+C++ Solution
+/*
+//Brute Force
+class Solution {
+public:
+    void rotate(vector<int>& a, int k) {
+
+while(k--){
+//to the right
+int n=a.size();
+int temp = a[n-1]; //remember last element
+for(int i=n-2;i>=0;i--)
+{
+    a[i+1] = a[i]; //move all element to the right except last one
+}
+a[0] = temp; //assign remembered value to first element
+} 
+    }
+};
+
+*/
+
+
+
+
+/*
+Reversal of array
+
+Reverse the whole array.
+Then reverse the first k elements.
+Finally reverse the remaining elements.
+(Do a dry run, it's very easy to understand)
+Time Complexity : O(n)
+
+Space Complexity : O(1)
+
+Code :
+*/
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        k = k%nums.size();
+        reverse(nums.begin(), nums.end());
+        reverse(nums.begin(), nums.begin()+k);
+        reverse(nums.begin()+k, nums.end());
+    }
+};
