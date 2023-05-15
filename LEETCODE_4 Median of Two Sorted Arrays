@@ -1,0 +1,26 @@
+// Question Link -> https://leetcode.com/problems/median-of-two-sorted-arrays/description/
+
+//C++ Solution
+class Solution {
+public:
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+int n=nums1.size()+nums2.size();
+vector<int> a(n);
+for(int i=0;i<nums1.size();i++){
+a[i]=nums1[i];
+}
+for(int i=nums1.size();i<nums1.size()+nums2.size();i++){
+    a[i] = nums2[i - nums1.size()];
+}
+sort(a.begin(),a.end());
+double med=0;
+        if(n%2!=0){
+               med= a[ (n - 1)/2];
+        }
+        else{
+med=  (a[n/2 - 1] + a[n/2])/2.0;
+;
+        }
+return med;
+    }
+};
