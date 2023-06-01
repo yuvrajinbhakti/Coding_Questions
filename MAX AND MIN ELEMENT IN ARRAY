@@ -1,0 +1,15 @@
+//CODE LINK - https://practice.geeksforgeeks.org/problems/find-minimum-and-maximum-element-in-an-array4428/1
+
+
+//C++
+
+pair<long long, long long> getMinMax(long long a[], int n) {
+   long long maxi=*max_element(a,a+n);
+   long long mini=*min_element(a,a+n);
+   pair<long long ,long long> ans;
+  
+   
+   ans.first=mini;
+   ans.second=maxi; 
+       return ans;
+}
