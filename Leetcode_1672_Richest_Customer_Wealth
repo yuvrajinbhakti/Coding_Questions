@@ -1,0 +1,20 @@
+// JAVA Solution
+
+class Solution {
+    public int maximumWealth(int[][] accounts) {
+        // person = row
+        // account = col
+        int max = Integer.MIN_VALUE;
+        for(int person = 0 ; person < accounts.length; person++){
+                int rowSum = 0;
+            for(int account=0; account < accounts[person].length; account++){
+                rowSum += accounts[person][account];
+            }
+            // check the maximum wealth of the person
+            if(rowSum > max){
+                max = rowSum;
+            }
+        }
+        return max;
+    }
+}
