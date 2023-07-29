@@ -1,6 +1,6 @@
 
 
-//Question Link
+//Question Link -> https://leetcode.com/problems/first-unique-character-in-a-string/description/
 
 //Java Solution 
 
@@ -22,3 +22,28 @@ class Solution {
         return -1; // Return -1 if no unique character is found
     }
 }
+
+
+//C++ SOLUTION
+#include <string>
+using namespace std;
+
+class Solution {
+public:
+    int firstUniqChar(string s) {
+        int n = s.length();
+        for (int i = 0; i < n; i++) {
+            bool isUnique = true;
+            for (int j = 0; j < n; j++) {
+                if (i != j && s[i] == s[j]) {
+                    isUnique = false;
+                    break;
+                }
+            }
+            if (isUnique) {
+                return i;
+            }
+        }
+        return -1; // Return -1 if no unique character is found
+    }
+};
