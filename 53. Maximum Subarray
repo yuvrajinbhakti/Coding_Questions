@@ -1,0 +1,63 @@
+//LEETCODE QUESTION LINK -> https://leetcode.com/problems/maximum-subarray/description/
+
+/*
+//Method 1 - Brute Force 
+// T.C. -> O(N^3) , S.C. -> O(1)
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+       int n=nums.size();
+       int maxi=INT_MIN;
+       for(int i=0;i<n;i++){
+           for(int j=i;j<n;j++){
+               int sum=0;
+               for(int k=i;k<=j;k++){
+                   sum+=nums[k];
+               }
+               if(sum>maxi)maxi=sum;
+           }
+       } 
+       return maxi;
+    }
+};
+*/
+
+/*
+//METHOD 2 - BETTER
+//T.C. -> O(N^2), S.C. -> O(1)
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+       int n=nums.size();
+       int maxi=INT_MIN;
+       for(int i=0;i<n;i++){
+           int sum=0;
+           for(int j=i;j<n;j++){
+              sum+=nums[j];
+               if(sum>maxi)maxi=sum;
+           }
+       } 
+       return maxi;
+    }
+};
+
+*/
+
+
+//METHOD 3 - KADANE'S ALGORITHM
+// T.C. -> O(N) , S.C. -> O(1)
+
+
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+       int n=nums.size(),maxi=INT_MIN;
+       int sum=0;        
+       for(int i=0;i<n;i++){
+          sum=sum+nums[i];
+          if(sum>maxi)maxi=sum;
+          if(sum<0) sum=0;
+       } 
+       return maxi;
+    }
+};
